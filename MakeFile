@@ -1,0 +1,26 @@
+CC=g++
+CFLAGS=-ldl -lm -w
+PKG=`pkg-config --libs --cflags opencv`
+
+all: target1_src target2_src target3_src target4_src
+
+target1_src:
+	$(CC) question1.cpp -o question1 $(PKG) $(CFLAGS)
+target2_src:
+	$(CC) question2.cpp -o question2 $(PKG) $(CFLAGS)
+target3_src:
+	$(CC) question3.cpp -o question3 $(PKG) $(CFLAGS)
+target4_src:
+	$(CC) question4.cpp -o question4 $(PKG) $(CFLAGS)
+
+.PHONY: clean
+
+clean:
+	rm -f *.exe
+	rm -f *.o
+	rm -f question1
+	rm -f question2
+	rm -f question3
+	rm -f question4
+	rm -f *.jpg
+	rm -f *.png
